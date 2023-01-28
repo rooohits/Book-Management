@@ -10,15 +10,24 @@ export default function Counter() {
     }
 
     function handleCountMinus(){
-        setCount(prevCount => prevCount - 1);
+        if(count === 0) {
+            setCount(0);
+        } else {
+            setCount(prevCount => prevCount - 1);
+        }
+    }
+
+    function handleCountReset(e){
+        setCount(0);
     }
 
     return (
         <div className="counter-container">
             <h1>Counter</h1> 
             <h1 className="count">{count}</h1>
-            <button onClick={handleCountPlus}>+</button>
-            <button onClick={handleCountMinus}>-</button>
+            <button className="counter" onClick={handleCountPlus}>+</button>
+            <button className="counter" onClick={handleCountMinus}>-</button>
+            <button className="resetBtn" onClick={handleCountReset}>Reset</button>
         </div>      
     )
 }
