@@ -11,13 +11,14 @@ export default function Counter() {
 
     function handleCountMinus(){
         if(count === 0) {
+            alert("Counter can't be less than zero");
             setCount(0);
         } else {
             setCount(prevCount => prevCount - 1);
         }
     }
 
-    function handleCountReset(e){
+    function handleCountReset(){
         setCount(0);
     }
 
