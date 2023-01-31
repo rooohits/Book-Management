@@ -9,6 +9,9 @@ export default function Library() {
 
     const [books, setBooks] = useState([]);
 
+    const [edit, setEdit] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(null);
+
     function handleBookId(event) {
         setBookId(event.target.value);
     }
@@ -28,11 +31,22 @@ export default function Library() {
             name,
             author,
         }
-        setBooks([...books, book]); // add a new book at last of given array
+        if(edit){
+            let copy = books;
+            Object.assign(copy[activeIndex], book) // means replace copy[activeIndex] element by book
+            setBooks([...copy]);
+            setEdit(false);
+            setActiveIndex(null);
+            setBookId("");
+            setName("");
+            setAuthor("");
+        } else {
+            setBooks([...books, book]); // add a new book at last of given array
         
-        setBookId("");
-        setName("");
-        setAuthor("");
+            setBookId("");
+            setName("");
+            setAuthor("");
+        }
     }
 
 
@@ -46,9 +60,17 @@ export default function Library() {
                 <input type="text" value={name} onChange={handleBookName} placeholder="Enter Book name" />
                 <label>Author</label>
                 <input type="text" value={author} onChange={handleAuthor} placeholder="Enter Author Name" />
-                <button className="addBtn">Add Book</button>
+                <button className="addBtn">{edit ? "Update" : "Add"} Book</button>
             </form>
-            <BookRow books={books} setBooks={setBooks}/>
+            <BookRow 
+                books={books} 
+                setBooks={setBooks} 
+                setBookId={setBookId} 
+                setName={setName} 
+                setAuthor={setAuthor}
+                setEdit={setEdit}
+                setActiveIndex={setActiveIndex}
+            />
         </div>
     )
 }
