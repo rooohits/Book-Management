@@ -52,14 +52,14 @@ export default function Library() {
 
     return (
         <div className="container">
-            <h1>Library App</h1>
+            <h1>Book Management System</h1>
             <form onSubmit={add_book}>
-                <label>BookId</label>
-                <input type="text" value={bookId} onChange={handleBookId} placeholder="Enter Book Id" />
-                <label>Name</label>
-                <input type="text" value={name} onChange={handleBookName} placeholder="Enter Book name" />
-                <label>Author</label>
-                <input type="text" value={author} onChange={handleAuthor} placeholder="Enter Author Name" />
+                <label className="lab"><h4>Title</h4></label>
+                <input className="inp" type="text" value={bookId} onChange={handleBookId} placeholder="Enter Book Title" />
+                <label className="lab"><h4>Author</h4></label>
+                <input className="inp" type="text" value={name} onChange={handleBookName} placeholder="Enter Book Author" />
+                <label className="lab"><h4>ISBN#</h4></label>
+                <input className="inp" type="text" value={author} onChange={handleAuthor} placeholder="Enter ISBN" />
                 <button className="addBtn">{edit ? "Update" : "Add"} Book</button>
             </form>
             <BookRow 

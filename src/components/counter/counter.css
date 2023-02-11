@@ -1,3 +1,4 @@
+
 .counter-container{
     display: flex;
     flex-direction: column;
@@ -27,7 +28,7 @@
 
 .resetBtn {
     margin: 20px;
-    background-color: crimson;
+    background-color: aquamarine;
     color: white;
     width: 10vw;
     height: 5vh;

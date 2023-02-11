@@ -37,8 +37,8 @@ export default function BookRow({books, setBooks, setBookId, setName, setAuthor,
                                         <td>{book.bookId}</td>
                                         <td>{book.name}</td>
                                         <td>{book.author}</td>
-                                        <button onClick={() => book_edit(index)}>Edit</button>
-                                        <button onClick={() => book_delete(index)}>Delete</button>
+                                        <button className='addBtn' onClick={() => book_edit(index)}>Edit</button>
+                                        <button className='addBtn' onClick={() => book_delete(index)}>Remove</button>
                                     </tr>
                                 </tbody>
                             </div>
